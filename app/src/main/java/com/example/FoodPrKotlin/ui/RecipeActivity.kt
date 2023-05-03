@@ -8,6 +8,9 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.FoodPrKotlin.controller.Api
 import com.example.FoodPrKotlin.model.MyResponse
@@ -30,9 +33,19 @@ class RecipeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recipe)
         supportActionBar!!.hide()
         pager = findViewById(R.id.pager)
+        val itemDecorator =
+            DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL)
+        itemDecorator.setDrawable(
+            ContextCompat.getDrawable(
+                applicationContext,
+                R.drawable.item_decorator
+            )!!
+        )
+        pager?.addItemDecoration(itemDecorator)
+
         searchField = findViewById(R.id.search_field)
         progressBar = findViewById(R.id.progressBar)
-        progressBar?.visibility = View.INVISIBLE;
+        progressBar?.visibility = View.GONE;
         val apiService = instance!!.retrofit!!.create(
             Api::class.java
         )
@@ -54,7 +67,7 @@ class RecipeActivity : AppCompatActivity() {
                     ) {
                         adapter = RecipeAdapter(response.body()!!)
                         pager?.setAdapter(adapter)
-                        progressBar?.setVisibility(View.INVISIBLE)
+                        progressBar?.setVisibility(View.GONE)
                         //Toast.makeText(RecipeActivity.this, response.body().hits.get(0).recipe.label + "калории: " + response.body().hits.get(0).recipe.calories + " " + response.body().hits.get(0).recipe.ingredientLines.toString() + " " + response.body().hits.get(0).recipe.co2EmissionsClass, Toast.LENGTH_SHORT).show();
                     }
 

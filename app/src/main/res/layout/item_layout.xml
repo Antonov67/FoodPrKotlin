@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="15dp"
     android:orientation="vertical"
    >
 
@@ -17,6 +18,7 @@
         android:id="@+id/text_title"
         android:textStyle="bold"
         android:textSize="20sp"
+        style="@style/FoodTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
@@ -25,16 +27,20 @@
         android:id="@+id/text_calorii"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/FoodTheme"
+        android:fontFamily="@font/lato_italic"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/text_descr"
+        style="@style/FoodTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/text_rating"
+        style="@style/FoodTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />

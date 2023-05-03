@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_margin="20dp"
-    tools:context=".MainActivity">
+    tools:context="com.example.FoodPrKotlin.ui.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textStyle="bold"
         android:textSize="25dp"
+        style="@style/FoodTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.068" />
 
@@ -28,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        style="@style/FoodTheme"
         android:text="поиск рецептов по ключевым словам" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -38,7 +40,7 @@
         android:layout_width="wrap_content"
         android:textColor="@color/black"
         android:layout_height="50dp"
-
+        style="@style/FoodTheme"
         android:layout_marginBottom="10dp"
         android:text="начать поиск" />
 

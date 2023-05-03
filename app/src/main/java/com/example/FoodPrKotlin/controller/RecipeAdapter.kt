@@ -47,7 +47,7 @@ class RecipeAdapter(private val onboardingItems: MyResponse) :
         fun setOnboardingData(recipe: Recipe?) {
             textZagolovok.text = recipe!!.label
             val stringBuilder = StringBuilder()
-            stringBuilder.append("ингридиенты:\n")
+            stringBuilder.append("ингредиенты:\n")
             for (s in recipe.ingredientLines!!) {
                 stringBuilder.append(s).append("\n")
             }
