@@ -95,18 +95,20 @@ class RecipeActivity : AppCompatActivity() {
                         call: Call<MyResponse?>,
                         response: Response<MyResponse?>
                     ) {
-                        adapter = RecipeAdapter(response.body()!!)
-                        pager?.setAdapter(adapter)
+                        if (response.body() != null){
+                            adapter = RecipeAdapter(response.body()!!)
+                            pager?.setAdapter(adapter)
 
-                        //работаем с БД
-                        for (hit in response.body()!!.hits!!){
-                            hit.recipe?.let { saveData(it) }
+                            //работаем с БД
+                            for (hit in response.body()!!.hits!!){
+                                hit.recipe?.let { saveData(it) }
+                            }
+
+                            progressBar?.setVisibility(View.GONE)
                         }
 
-                        progressBar?.setVisibility(View.GONE)
 
-
-                        //Toast.makeText(RecipeActivity.this, response.body().hits.get(0).recipe.label + "калории: " + response.body().hits.get(0).recipe.calories + " " + response.body().hits.get(0).recipe.ingredientLines.toString() + " " + response.body().hits.get(0).recipe.co2EmissionsClass, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(applicationContext, response.code().toString(), Toast.LENGTH_SHORT).show();
                     }
 
                     override fun onFailure(call: Call<MyResponse?>, t: Throwable) {
