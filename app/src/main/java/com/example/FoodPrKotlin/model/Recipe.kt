@@ -11,4 +11,8 @@ class Recipe {
     var ingredientLines: List<String>? = null
     @JvmField
     var co2EmissionsClass: String? = null
+
+    override fun toString(): String {
+        return label + " " + calories + " " + ingredientLines.toString()
+    }
 }
